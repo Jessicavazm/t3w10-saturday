@@ -1,0 +1,21 @@
+{
+  "name": "t3w10-saturday",
+  "version": "1.0.0",
+  "description": "- Jest discussion - Write tests with the help of supertest - Middleware - error handling - How Github runs tests automatically",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
