@@ -15,6 +15,7 @@ Doc: https://jestjs.io/
 - Ensure to look at the right documentation for the version you are working on.
 - describe keyword: groups different case tests for the same function/ module.
 - it keyword: used instead of 'test' keyword. (more readable way)
+- How to run: npm run test
 
 
 ### SUPERTEST
