@@ -5,9 +5,19 @@ const  { app } = require('../src/server.js');
 const request = require('supertest');
 
 describe("Users route", () => {
-    test.skip("'Get all users' route returns array of users", async () => {
+    test("'Get all users' route returns array of users", async () => {
         // GET localhost:3000/users
-        const response = await request(app).get("/users")
+        const response = await request(app).get("/users");
+
+        const expectedUsers = [
+            "Bob",
+            "Alice"
+        ]
+
+        expect(response.body.data).toHaveLength(4);
+        expect(response.body.data.length).toBeGreaterThan(3);
+        expect(response.body.data).toEqual(expect.arrayContaining(expectedUsers));
+
     });
     test.skip("'Get user by ID' route returns a specific user only", async () => {
         // GET localhost:3000/users/:id
