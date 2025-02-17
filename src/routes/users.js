@@ -35,4 +35,35 @@ router.post("/signup", (req, res) => {
     res.json(databaseResult);
 });
 
+// POST localhost:3000/users/login
+router.get("/:userID", async (req, res) => {
+    let targetUserId = req.params.userID;
+
+    // Database query executes to fetch the specific user based on userId
+
+    // Send the response back
+    res.json({
+        result: {
+            id: targetUserId,
+            username: "Username from DB"
+        }
+    });
+});
+
+// POST localhost:3000/users/login
+router.post("/login", async (req, res, next) => {
+    let authHeaderData = req.headers["authorization"]
+
+    console.log(authHeaderData);
+
+    if(authHeaderData != "Some header value") {
+        // throw new Error("Not a valid login data");
+        return next(new Error("Not a valid login data"));
+    }
+
+    res.json({
+        authHeaderData
+    });
+});
+
 module.exports = router;
