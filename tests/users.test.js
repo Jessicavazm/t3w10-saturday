@@ -19,21 +19,27 @@ describe("Users route", () => {
         expect(response.body.data).toEqual(expect.arrayContaining(expectedUsers));
 
     });
+
     test.skip("'Get user by ID' route returns a specific user only", async () => {
         // GET localhost:3000/users/:id
         let targetUserId = '1'
         const response = await request(app).get("/users/" + targetUserId); 
     });
-    test.skip("'Create a new user' route returns the newly created user", async () => {
+
+    test("'Create a new user' route returns the newly created user", async () => {
         // POST localhost:3000/users/signup
         // Anything in response variable is on the 'request body'
         const response = await request(app)
             .post("/users/signup")
             .send({
-                username: "Jess",
+                username: "Alice",
                 password: "abc123"
             });
+
+            expect(response.body.username).toBe("Alice");
+            expect(response.body.password).toBe("EncryptedPassword");
     });
+
     test.skip("'Login user' route returns a specific user only", async() => {
         // POST localhost:3000/users/login
         const response = await request(app)

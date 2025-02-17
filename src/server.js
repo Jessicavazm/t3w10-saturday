@@ -7,10 +7,13 @@
 // Can import the app without worrying about starting the app
 
 // Import express
-const express = require('express');
+const express = require("express");
 
 // Make an instance of the express server
 const app = express();
+
+// Built-in middleware for server to receive JSON body data
+app.use(express.json());
 
 // Start defining routes: instance.verb(url, middleware/ callback)
 // GET localhost: 3000/

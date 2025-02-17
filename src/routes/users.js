@@ -20,4 +20,19 @@ router.get("/", (req, res) => {
     })
 });
 
+// POST localhost:3000/users/login
+router.post("/signup", (req, res) => {
+    // receivedUserData that receives the data from the user request body
+    let receivedUserData = req.body;
+
+    // Get the hashed password from the front end and encrypt it
+    receivedUserData.password = "EncryptedPassword";
+
+    // Store the data to the database using a query
+    let databaseResult = {...receivedUserData};
+
+    // Send the newly created user data as a response for acknowledgment
+    res.json(databaseResult);
+});
+
 module.exports = router;
