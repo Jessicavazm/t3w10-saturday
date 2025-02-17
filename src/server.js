@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
     })
 });
 
+// Import the users route and tell the app to use it
+const UserRoute = require("./routes/users.js");
+app.use("/users", UserRoute);
+
 // Export server
 module.exports = {
     app
